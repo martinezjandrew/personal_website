@@ -1,0 +1,13 @@
+(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))d(t);new MutationObserver(t=>{for(const o of t)if(o.type==="childList")for(const c of o.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&d(c)}).observe(document,{childList:!0,subtree:!0});function n(t){const o={};return t.integrity&&(o.integrity=t.integrity),t.referrerPolicy&&(o.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?o.credentials="include":t.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function d(t){if(t.ep)return;t.ep=!0;const o=n(t);fetch(t.href,o)}})();function s(){const e=document.createElement("div");return e.innerHTML=`
+        <h1>Projects</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pfdZyTuQRrk?si=9JmBLIJdISqrMW0V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    `,e.id="project-page",e.className="page",e}function f(){const e=document.createElement("div");return e.innerHTML=`
+        <h1>Home</h1>
+    `,e.id="home-page",e.className="page",e}function h(){const e=document.createElement("div");return e.innerHTML=`
+        <h1>About Me</h1>
+    `,e.id="aboutme-page",e.className="page",e}document.querySelector("#app").innerHTML=`
+  <div>
+    <h1> Andrew Martinez </h1>
+    <h2> Programmer </h2>
+  </div>
+`;const i=document.createElement("button");i.innerHTML="Home";i.addEventListener("click",function(){var e,r,n;(e=document.querySelector("#project-page"))==null||e.remove(),(r=document.querySelector("#aboutme-page"))==null||r.remove(),(n=document.querySelector("#app"))==null||n.appendChild(f())});const u=document.createElement("button");u.innerHTML="About Me";u.addEventListener("click",function(){var e,r,n;(e=document.querySelector("#project-page"))==null||e.remove(),(r=document.querySelector("#home-page"))==null||r.remove(),(n=document.querySelector("#app"))==null||n.appendChild(h())});const a=document.createElement("button");a.innerHTML="Projects";a.addEventListener("click",function(){var e,r,n;(e=document.querySelector("#aboutme-page"))==null||e.remove(),(r=document.querySelector("#home-page"))==null||r.remove(),(n=document.querySelector("#app"))==null||n.appendChild(s())});var p;(p=document.querySelector("#app"))==null||p.appendChild(i);var l;(l=document.querySelector("#app"))==null||l.appendChild(u);var m;(m=document.querySelector("#app"))==null||m.appendChild(a);
