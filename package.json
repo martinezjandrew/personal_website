@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://andrewjmartinez.me""scripts": {
+  "homepage": "https://andrewjmartinez.me",
+  "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
