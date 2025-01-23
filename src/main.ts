@@ -8,30 +8,30 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `
 
-const home = document.createElement('button')
-home.innerHTML = 'Home'
-home.addEventListener("click", function() {
-  document.querySelector<HTMLDivElement>('#project-page')?.remove()
-  document.querySelector<HTMLDivElement>('#aboutme-page')?.remove()
-  document.querySelector<HTMLDivElement>('#app')?.appendChild(load_home_page())
-})
+function createButton(label: string, loadPage: () => HTMLElement, pageId: string) {
+  const button = document.createElement('button')
+  button.innerHTML = label
+  button.addEventListener("click", function() {
+    if (!document.querySelector(`#${pageId}`)) {
+      document.querySelectorAll('.page').forEach(page => page.remove())
+      const page = loadPage()
+      page.id = pageId
+      page.classList.add('page')
+      document.querySelector<HTMLDivElement>('#app')?.appendChild(page)
+    }
+  })
+  return button
+}
 
-const aboutme = document.createElement('button')
-aboutme.innerHTML = 'About Me'
-aboutme.addEventListener("click", function() {
-  document.querySelector<HTMLDivElement>('#project-page')?.remove()
-  document.querySelector<HTMLDivElement>('#home-page')?.remove()
-  document.querySelector<HTMLDivElement>('#app')?.appendChild(load_aboutme_page())
-})
+const homeButton = createButton('Home', load_home_page, 'home-page')
+const aboutMeButton = createButton('About Me', load_aboutme_page, 'aboutme-page')
+const projectsButton = createButton('Projects', load_project_page, 'project-page')
 
-const projects = document.createElement('button')
-projects.innerHTML = 'Projects'
-projects.addEventListener("click", function() {
-  document.querySelector<HTMLDivElement>('#aboutme-page')?.remove()
-  document.querySelector<HTMLDivElement>('#home-page')?.remove()
-  document.querySelector<HTMLDivElement>('#app')?.appendChild(load_project_page())
-})
+document.querySelector<HTMLDivElement>('#app')?.appendChild(homeButton)
+document.querySelector<HTMLDivElement>('#app')?.appendChild(aboutMeButton)
+document.querySelector<HTMLDivElement>('#app')?.appendChild(projectsButton)
 
-document.querySelector<HTMLDivElement>('#app')?.appendChild(home)
-document.querySelector<HTMLDivElement>('#app')?.appendChild(aboutme)
-document.querySelector<HTMLDivElement>('#app')?.appendChild(projects)
+const page = load_home_page()
+page.id = 'home-page'
+page.classList.add('page')
+document.querySelector<HTMLDivElement>('#app')?.appendChild(page)
