@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface Page {
   name: string;
@@ -7,7 +7,7 @@ interface Page {
   subpages?: Page[];
 }
 
-class PageClass implements Page {
+export class PageClass implements Page {
   name: string;
   location: string;
   subpages: PageClass[];
@@ -59,15 +59,14 @@ class PageClass implements Page {
   }
 }
 
-const home: PageClass = new PageClass("Home", "/");
-const contactme: PageClass = new PageClass("Contact Me", "/contact-me");
-const aboutme: PageClass = new PageClass("About Me", "/about-me", [contactme]);
-const navigation: PageClass = new PageClass("Navigation", "/", [home, aboutme]);
+interface NavigationProps {
+  page: PageClass,
+}
 
-function Navigation() {
+const Navigation: React.FC<NavigationProps> = ({ page }) => {
   return (
     <div className='pt-6 pl-3'>
-      <ul>{navigation.render()}</ul>
+      <ul>{page.render()}</ul>
     </div>
   )
 }

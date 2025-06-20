@@ -1,5 +1,5 @@
 import React from 'react';
-import Body from '../components/body.tsx';
+import Body from '../../components/body.tsx';
 
 function Projects() {
   const title = "Projects";
