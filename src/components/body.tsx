@@ -1,10 +1,15 @@
 import React from 'react';
 
-function Body() {
+interface BodyProps {
+  title: string,
+  body: string
+}
+
+const Body: React.FC<BodyProps> = ({ title, body }) => {
   return (
-    <div>
-      <h1>Hello</h1>
-      <p>I'm Andrew Martinez, soon to be graduate from St. Edward's University!</p>
+    <div className='p-6'>
+      <h1>{title}</h1>
+      <p>{body}</p>
     </div>
   )
 }
