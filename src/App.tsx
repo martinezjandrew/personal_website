@@ -7,10 +7,15 @@ import Navigation from './components/navigation.tsx';
 import { PageClass } from './components/navigation.tsx';
 import Home from './pages/home.tsx';
 import Projects from './pages/projects/projects.tsx';
+import AboutMe from './pages/aboutme/aboutme.tsx';
+import Resume from './pages/aboutme/resume.tsx';
 import './style.css';
 
 const home = new PageClass("Home", "/");
-const navigation = new PageClass(".", "/", [home]);
+const projects = new PageClass("Projects", "/projects");
+const resume = new PageClass("Resume", "/resume");
+const aboutme = new PageClass("AboutMe", "/about-me", [resume]);
+const navigation = new PageClass(".", "/", [home, aboutme, projects]);
 
 
 export function App() {
@@ -25,7 +30,7 @@ export function App() {
       '>
         <div className='
         grid grid-flow-row auto-rows-max gap-4
-        max-w-5/6 min-w-1/3
+        max-w-5/6 min-w-2/3
        '>
           <div className='
           pt-8 
@@ -42,6 +47,8 @@ export function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/projects" element={<Projects />} />
+                <Route path="/about-me" element={<AboutMe />} />
+                <Route path="/resume" element={<Resume />} />
               </Routes>
             </div>
           </div>
