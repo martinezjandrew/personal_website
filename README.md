@@ -13,8 +13,11 @@ Built with...
 
 ## To Do
 
+Goals for v 1.0.0
+
 - Build extensible navigation ✔️
 - Create experience/resume page
 - Build blinkies
 - Create a Header ✔️
 - Create own background ✔️
+- Create extensible projects page
