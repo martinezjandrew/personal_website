@@ -3,13 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://andrewjmartinez.me",
+  "homepage": "https://andrewjmartinez.me/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "echo 'andrewjmartinez.me' > ./build/CNAME && gh-pages -d dist"
+    "deploy": "echo 'andrewjmartinez.me' > dist/CNAME && gh-pages -d dist"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
