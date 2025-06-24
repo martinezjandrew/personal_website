@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --color-floral-white: #FBFBF2;
+  --color-platinum: #E5E6E4;
+  --color-timberwolf: #CFD2CD;
+  --color-silver: #A6A2A2;
+  --color-taupe-gray: #847577;
+}
