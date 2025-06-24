@@ -39,7 +39,7 @@ export function App() {
             <Header />
           </div>
           <div className='grid grid-cols-4 gap-4'>
-            <div className='max-w-2md hidden sm:flex bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double'>
+            <div className='max-w-2md hidden sm:flex'>
               <Navigation page={navigation} />
             </div>
             <div className='max-w-5xl col-span-4 sm:col-span-3 flex justify-center bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double'>

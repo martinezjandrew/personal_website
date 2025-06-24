@@ -65,7 +65,7 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ page }) => {
   return (
-    <div className='p-3'>
+    <div className='max-h-fit min-w-full p-3 bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double'>
       <ul>{page.render()}</ul>
     </div>
   )
