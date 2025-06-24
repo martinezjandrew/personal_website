@@ -65,7 +65,7 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ page }) => {
   return (
-    <div className='pt-6 pl-3'>
+    <div className='p-3'>
       <ul>{page.render()}</ul>
     </div>
   )
