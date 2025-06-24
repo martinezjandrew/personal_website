@@ -56,6 +56,6 @@ export function App() {
           </div>
         </div>
       </div>
-    </Router>
+    </Router >
   )
 }
