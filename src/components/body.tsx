@@ -7,8 +7,8 @@ interface BodyProps {
 
 const Body: React.FC<BodyProps> = ({ title, body }) => {
   return (
-    <div className='p-6'>
-      <h1>{title}</h1>
+    <div className='p-6 min-w-full'>
+      <h1 className='font-jacquard-12 text-6xl'>{title}</h1>
       <p>{body}</p>
     </div>
   )

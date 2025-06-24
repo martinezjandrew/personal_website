@@ -49,7 +49,7 @@ export class PageClass implements Page {
     const newPrefix = prefix + (last ? " " : "| ");
 
     return (
-      <div className='whitespace-pre font-mono' key={this.location}>
+      <div className='whitespace-pre font-cascadia-code' key={this.location}>
         <Link className='hover:text-teal-300' to={this.location}>{output}</Link>
         {
           this.subpages.map((sub, i) => sub.render(newPrefix, i === this.subpages.length - 1))

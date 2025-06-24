@@ -25,7 +25,8 @@ export function App() {
       w-screen h-screen
       flex
       justify-center
-      bg-[url(./assets/BGTile3.png)] bg-center bg-repeat-round
+      bg-[url(/bg-tile.png)] bg-center bg-repeat-round
+      font-display
       '>
         <div className='
         grid grid-flow-row auto-rows-max gap-4

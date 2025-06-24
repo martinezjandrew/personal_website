@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Jacquard+12&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
 @import "tailwindcss";
 
 @theme {
+  --font-display: "Newsreader", sans-serif;
+  --font-jacquard-12: "Jacquard 12", sans-serif;
+  --font-cascadia-code: "Cascadia Code", SFMono-Regular;
   --color-floral-white: #FBFBF2;
   --color-platinum: #E5E6E4;
   --color-timberwolf: #CFD2CD;
