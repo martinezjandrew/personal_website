@@ -13,8 +13,8 @@ Built with...
 
 ## To Do
 
-- Build extensible navigation
+- Build extensible navigation ✔️
 - Create experience/resume page
 - Build blinkies
-- Create a Header
-- Create own background
+- Create a Header ✔️
+- Create own background ✔️
