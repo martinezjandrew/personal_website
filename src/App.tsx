@@ -26,7 +26,7 @@ export function App() {
       w-screen h-screen
       flex
       justify-center
-      bg-[url(./assets/stars.gif)] bg-center bg-repeat-round
+      bg-[url(./assets/BGTile3.png)] bg-center bg-repeat-round
       '>
         <div className='
         grid grid-flow-row auto-rows-max gap-4
@@ -34,16 +34,15 @@ export function App() {
        '>
           <div className='
           pt-8 
-          flex justify-center 
-          bg-blue-50
+          flex justify-center
         '>
             <Header />
           </div>
           <div className='grid grid-cols-4 gap-4'>
-            <div className='max-w-2md hidden sm:flex bg-red-50'>
+            <div className='max-w-2md hidden sm:flex bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double'>
               <Navigation page={navigation} />
             </div>
-            <div className='max-w-5xl col-span-4 sm:col-span-3 flex justify-center bg-green-50'>
+            <div className='max-w-5xl col-span-4 sm:col-span-3 flex justify-center bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double'>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/projects" element={<Projects />} />
@@ -52,7 +51,7 @@ export function App() {
               </Routes>
             </div>
           </div>
-          <div className='flex justify-center bg-orange-50'>
+          <div className='flex justify-center'>
             <Footer />
           </div>
         </div>
