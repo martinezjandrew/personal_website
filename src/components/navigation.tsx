@@ -67,7 +67,7 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ page }) => {
   return (
-    <div className="flex max-h-fit min-w-full p-3 bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double">
+    <div className="flex max-h-fit min-w-full p-3 bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double items-end">
       <ul>{page.render()}</ul>
     </div>
   );

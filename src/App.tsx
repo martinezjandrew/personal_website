@@ -45,10 +45,8 @@ export function App() {
             <Header />
           </div>
           <div className="grid grid-cols-4 gap-4">
-            <div className="max-w-2md hidden sm:flex">
-              <div className="grid grid-flow-row auto-rows-max">
-                <Navigation page={navigation} />
-              </div>
+            <div className="max-w-xs hidden sm:flex flex flex-col">
+              <Navigation page={navigation} />
             </div>
             <div className="max-w-5xl col-span-4 sm:col-span-3 flex justify-center bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double">
               <Routes>
