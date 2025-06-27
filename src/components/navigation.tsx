@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 
 interface Page {
@@ -49,26 +49,28 @@ export class PageClass implements Page {
     const newPrefix = prefix + (last ? " " : "| ");
 
     return (
-      <div className='whitespace-pre font-cascadia-code' key={this.location}>
-        <Link className='hover:text-teal-300' to={this.location}>{output}</Link>
-        {
-          this.subpages.map((sub, i) => sub.render(newPrefix, i === this.subpages.length - 1))
-        }
+      <div className="whitespace-pre font-cascadia-code" key={this.location}>
+        <Link className="hover:text-teal-300" to={this.location}>
+          {output}
+        </Link>
+        {this.subpages.map((sub, i) =>
+          sub.render(newPrefix, i === this.subpages.length - 1),
+        )}
       </div>
-    )
+    );
   }
 }
 
 interface NavigationProps {
-  page: PageClass,
+  page: PageClass;
 }
 
 const Navigation: React.FC<NavigationProps> = ({ page }) => {
   return (
-    <div className='max-h-fit min-w-full p-3 bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double'>
+    <div className="flex max-h-fit min-w-full p-3 bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double">
       <ul>{page.render()}</ul>
     </div>
-  )
-}
+  );
+};
 
 export default Navigation;
