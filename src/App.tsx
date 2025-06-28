@@ -15,7 +15,11 @@ const home = new PageClass("Home", "/");
 const projects = new PageClass("Projects", "/projects");
 const resume = new PageClass("Resume", "/resume");
 const aboutme = new PageClass("AboutMe", "/about-me", [resume]);
-const navigation = new PageClass("Navigation", "/", [home, aboutme, projects]);
+const navigation = new PageClass("Navigation", "/navigvation", [
+  home,
+  aboutme,
+  projects,
+]);
 
 export function App() {
   return (
