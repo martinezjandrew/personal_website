@@ -1,17 +1,18 @@
-import React from 'react';
+import React from "react";
+import Markdown from "react-markdown";
 
 interface BodyProps {
-  title: string,
-  body: string
+  title: string;
+  body: string;
 }
 
 const Body: React.FC<BodyProps> = ({ title, body }) => {
   return (
-    <div className='p-6 min-w-full'>
-      <h1 className='font-jacquard-12 text-6xl'>{title}</h1>
-      <p>{body}</p>
+    <div className="p-6 min-w-full">
+      <h1>{title}</h1>
+      <Markdown>{body}</Markdown>
     </div>
-  )
-}
+  );
+};
 
 export default Body;

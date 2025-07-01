@@ -1,13 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Jacquard+12&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Jacquard+12&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-display: "Newsreader", sans-serif;
   --font-jacquard-12: "Jacquard 12", sans-serif;
   --font-cascadia-code: "Cascadia Code", SFMono-Regular;
-  --color-floral-white: #FBFBF2;
-  --color-platinum: #E5E6E4;
-  --color-timberwolf: #CFD2CD;
-  --color-silver: #A6A2A2;
+  --color-floral-white: #fbfbf2;
+  --color-platinum: #e5e6e4;
+  --color-timberwolf: #cfd2cd;
+  --color-silver: #a6a2a2;
   --color-taupe-gray: #847577;
+}
+@layer base {
+  h1 {
+    font-family: var(--font-jacquard-12);
+    font-size: var(--text-6xl);
+  }
+  h2 {
+    font-size: var(--text-3xl);
+    font-weight: bold;
+  }
+  .md {
+    padding: 30px;
+    line-height: 1.8;
+  }
 }
