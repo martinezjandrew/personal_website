@@ -20,6 +20,9 @@
     font-size: var(--text-3xl);
     font-weight: bold;
   }
+  p {
+    font-size: 20px;
+  }
   .md {
     padding: 30px;
     line-height: 1.8;
