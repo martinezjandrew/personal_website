@@ -101,7 +101,16 @@ function Projects() {
     wego_yml.integrated_apis,
   );
 
-  return object.render();
+  return (
+    <div className="md">
+      <h1>Projects</h1>
+      <p>
+        This page contains a list of my most notable projects across my
+        personal, professional, and school areas.
+      </p>
+      {object.render()}
+    </div>
+  );
 }
 
 export default Projects;
