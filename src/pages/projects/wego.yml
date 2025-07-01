@@ -5,6 +5,6 @@ description: |
   Our alpha demo included a two cloud solution, one to host the service hosting the TAAS applications and the other to simulate a network of autonomous vehicles.
 stack:
   [django python framework, python, reactJS, mySql, gunicorn, nginx, mongoDB]
-integrated apis: MapBox
+integrated_apis: MapBox
 demo: https://youtu.be/pfdZyTuQRrk?si=8nwCN6IJMQYqlCPR
 sourcecode: https://github.com/ricky-yosh/wego
