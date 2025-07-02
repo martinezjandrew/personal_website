@@ -1,6 +1,12 @@
-import React, { useState } from "react";
-import wego_yml from "./wego.yml";
-import scriboai from "./scriboai.yml";
+import React, { useEffect, useState } from "react";
+
+import { createClient } from "@supabase/supabase-js";
+import { Database } from "../../database.types.ts";
+
+const supabase = createClient<Database>(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY,
+);
 
 interface Project {
   title: string;
@@ -34,72 +40,25 @@ class ProjectClass implements Project {
     this.source = source;
     this.integrated_apis = integrated_apis;
   }
-
-  render() {
-    const [visible, setVisibile] = useState(false);
-
-    const onClick = () => {
-      setVisibile(!visible);
-    };
-
-    return (
-      <div className="md space-y-4 min-w-full">
-        <div
-          data-visible={visible}
-          className="text-4xl font-cascadia-code cursor-pointer hover:text-5xl hover:duration-300 hover:ease-out duration-300 ease-in data-[visible=true]:text-5xl"
-          onClick={onClick}
-        >
-          {this.title}
-        </div>
-        <div
-          id={this.title}
-          data-visible={visible}
-          className="
-          border-l-4 m-4 pl-4
-          transition-[height] overflow-hidden transform h-0 duration-900 ease-in
-          data-[visible=true]:h-76 data-[visible=true]:ease-out data-[visible=true]:duration-900 data-[visible=true]:overflow-scroll"
-        >
-          <div className="text-2xl font-cascadia-code">description</div>
-          <p>{this.description}</p>
-          <div className="grid grid-cols-2">
-            <div>
-              <div className="text-2xl font-cascadia-code">stack</div>
-              <ul>
-                {this.stack.map((tool) => (
-                  <li key={tool}>{tool}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <div>
-                <div className="text-2xl font-cascadia-code">apis</div>
-                <div>{this.integrated_apis}</div>
-              </div>
-              <div className="text-2xl font-cascadia-code">links</div>
-              <div>
-                <a href={this.demo}>View the demo!</a>
-              </div>
-              <div>
-                <a href={this.source}>View the source code!</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* )} */}
-      </div>
-    );
-  }
 }
 
 function Projects() {
-  const object = new ProjectClass(
-    wego_yml.title,
-    wego_yml.description,
-    wego_yml.stack,
-    wego_yml.demo,
-    wego_yml.sourcecode,
-    wego_yml.integrated_apis,
-  );
+  const [visible, setVisibile] = useState(false);
+
+  const onClick = () => {
+    setVisibile(!visible);
+  };
+  const [projects, setProjects] = useState<Project[]>([]);
+  const projectClassInstances: ProjectClass[] = [];
+  useEffect(() => {
+    getProjects();
+  }, []);
+
+  async function getProjects() {
+    const { data } = await supabase.from("projects").select();
+    setProjects(data);
+  }
+
   return (
     <div className="md">
       <h1>Projects</h1>
@@ -107,7 +66,51 @@ function Projects() {
         This page contains a list of my most notable projects across my
         personal, professional, and school areas.
       </p>
-      {object.render()}
+      {projects.map((project) => (
+        <div className="md space-y-4 min-w-full">
+          <div
+            data-visible={visible}
+            className="text-4xl font-cascadia-code cursor-pointer hover:text-5xl hover:duration-300 hover:ease-out duration-300 ease-in data-[visible=true]:text-5xl"
+            onClick={onClick}
+          >
+            {project.title}
+          </div>
+          <div
+            id={project.title}
+            data-visible={visible}
+            className="
+          border-l-4 m-4 pl-4
+          transition-[height] overflow-hidden transform h-0 duration-900 ease-in
+          data-[visible=true]:h-76 data-[visible=true]:ease-out data-[visible=true]:duration-900 data-[visible=true]:overflow-scroll"
+          >
+            <div className="text-2xl font-cascadia-code">description</div>
+            <p>{project.description}</p>
+            <div className="grid grid-cols-2">
+              <div>
+                <div className="text-2xl font-cascadia-code">stack</div>
+                <ul>
+                  {project.stack.map((tool) => (
+                    <li key={tool}>{tool}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <div>
+                  <div className="text-2xl font-cascadia-code">apis</div>
+                  <div>{project.integrated_apis}</div>
+                </div>
+                <div className="text-2xl font-cascadia-code">links</div>
+                <div>
+                  <a href={project.demo}>View the demo!</a>
+                </div>
+                <div>
+                  <a href={project.source}>View the source code!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
