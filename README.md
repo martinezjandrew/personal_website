@@ -29,3 +29,5 @@ Other stuff maybe
 - Dotfiles page
 - More gifs
 - at least one 3d bee somewhere
+- "To do" block
+- "Change log" block
