@@ -9,7 +9,6 @@ import Projects from "./pages/projects/projects.tsx";
 import AboutMe from "./pages/aboutme/aboutme.tsx";
 import Resume from "./pages/aboutme/resume.tsx";
 import "./style.css";
-import Extra from "./components/extra.tsx";
 
 const home = new PageClass("Home", "/");
 const projects = new PageClass("Projects", "/projects");

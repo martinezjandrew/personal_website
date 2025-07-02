@@ -14,7 +14,7 @@ interface Project {
   stack: string[];
   integrated_apis: string[];
   demo: string;
-  source: string;
+  source_code: string;
 }
 
 class ProjectClass implements Project {
@@ -22,7 +22,7 @@ class ProjectClass implements Project {
   description: string;
   stack: string[];
   demo: string;
-  source: string;
+  source_code: string;
   integrated_apis: string[];
 
   constructor(
@@ -30,33 +30,52 @@ class ProjectClass implements Project {
     description: string = "",
     stack: string[] = [],
     demo: string = "",
-    source: string = "",
+    source_code: string = "",
     integrated_apis: string[] = [],
   ) {
     this.title = title;
     this.description = description;
     this.stack = stack.slice();
     this.demo = demo;
-    this.source = source;
+    this.source_code = source_code;
     this.integrated_apis = integrated_apis;
   }
 }
 
 function Projects() {
-  const [visible, setVisibile] = useState(false);
+  const [projects, setProjects] = useState<ProjectClass[]>([]);
 
-  const onClick = () => {
-    setVisibile(!visible);
-  };
-  const [projects, setProjects] = useState<Project[]>([]);
-  const projectClassInstances: ProjectClass[] = [];
   useEffect(() => {
     getProjects();
   }, []);
 
   async function getProjects() {
+    const holdProjects: ProjectClass[] = [];
     const { data } = await supabase.from("projects").select();
-    setProjects(data);
+    if (data) {
+      data.forEach((project) => {
+        const projectInstance = new ProjectClass(
+          project.title ?? "",
+          project.description ?? "",
+          project.stack ?? [],
+          project.demo ?? "",
+          project.source_code ?? "",
+          project.integrated_apis ?? [],
+        );
+        holdProjects.push(projectInstance);
+      });
+    }
+    setProjects(holdProjects);
+  }
+
+  function toggleVisibility(title: string) {
+    const projectBodyId = document.getElementById(title.concat("- body"));
+    const projectHeaderId = document.getElementById(title.concat("- header"));
+    const visible2 = projectBodyId?.dataset.visible == "true";
+    if (projectBodyId && projectHeaderId) {
+      projectBodyId.setAttribute("data-visible", `${!visible2}`);
+      projectHeaderId.setAttribute("data-visible", `${!visible2}`);
+    }
   }
 
   return (
@@ -69,15 +88,18 @@ function Projects() {
       {projects.map((project) => (
         <div className="md space-y-4 min-w-full">
           <div
-            data-visible={visible}
+            id={project.title.concat("- header")}
+            data-visible={false}
             className="text-4xl font-cascadia-code cursor-pointer hover:text-5xl hover:duration-300 hover:ease-out duration-300 ease-in data-[visible=true]:text-5xl"
-            onClick={onClick}
+            onClick={() => {
+              toggleVisibility(project.title);
+            }}
           >
             {project.title}
           </div>
           <div
-            id={project.title}
-            data-visible={visible}
+            id={project.title.concat("- body")}
+            data-visible={false}
             className="
           border-l-4 m-4 pl-4
           transition-[height] overflow-hidden transform h-0 duration-900 ease-in
@@ -104,7 +126,7 @@ function Projects() {
                   <a href={project.demo}>View the demo!</a>
                 </div>
                 <div>
-                  <a href={project.source}>View the source code!</a>
+                  <a href={project.source_code}>View the source code!</a>
                 </div>
               </div>
             </div>
