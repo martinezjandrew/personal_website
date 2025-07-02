@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import wego_yml from "./wego.yml";
+import scriboai from "./scriboai.yml";
 
 interface Project {
   title: string;
   description: string;
   stack: string[];
-  integrated_apis: string;
+  integrated_apis: string[];
   demo: string;
   source: string;
 }
@@ -16,15 +17,15 @@ class ProjectClass implements Project {
   stack: string[];
   demo: string;
   source: string;
-  integrated_apis: string;
+  integrated_apis: string[];
 
   constructor(
-    title: string,
-    description: string,
-    stack: string[],
-    demo: string,
-    source: string,
-    integrated_apis: string,
+    title: string = "",
+    description: string = "",
+    stack: string[] = [],
+    demo: string = "",
+    source: string = "",
+    integrated_apis: string[] = [],
   ) {
     this.title = title;
     this.description = description;
@@ -39,7 +40,6 @@ class ProjectClass implements Project {
 
     const onClick = () => {
       setVisibile(!visible);
-      console.log(visible);
     };
 
     return (
@@ -100,7 +100,6 @@ function Projects() {
     wego_yml.sourcecode,
     wego_yml.integrated_apis,
   );
-
   return (
     <div className="md">
       <h1>Projects</h1>
