@@ -1,10 +1,6 @@
 import React from "react";
-import Body from "../../components/body.tsx";
 
 function Resume() {
-  const title = "Resume";
-  const body = "Imagine there was a resume right here...";
-
   return (
     <div className="md w-full h-full">
       <h1>Resume</h1>
