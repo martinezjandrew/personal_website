@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/header.tsx";
 import Footer from "./components/footer.tsx";
+import Status from "./components/status.tsx";
 import Navigation from "./components/navigation.tsx";
 import { PageClass } from "./components/navigation.tsx";
 import Home from "./pages/home.tsx";
@@ -50,6 +51,7 @@ export function App() {
           <div className="grid grid-cols-4 gap-4">
             <div className="max-w-xs hidden sm:flex flex flex-col">
               <Navigation page={navigation} />
+              <Status />
             </div>
             <div className="max-w-5xl col-span-4 sm:col-span-3 flex justify-center bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double">
               <Routes>
