@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  HashRouter,
+} from "react-router-dom";
 import Header from "./components/header.tsx";
 import Footer from "./components/footer.tsx";
 import Status from "./components/status.tsx";
@@ -23,7 +28,8 @@ const navigation = new PageClass("Navigation", "/navigvation", [
 
 export function App() {
   return (
-    <Router>
+    <HashRouter>
+      {" "}
       <div
         className="
       pt-10 
@@ -51,9 +57,8 @@ export function App() {
           <div className="grid grid-cols-4 gap-4">
             <div className="max-w-xs hidden sm:flex flex flex-col">
               <Navigation page={navigation} />
-              <Status />
             </div>
-            <div className="max-w-5xl col-span-4 sm:col-span-3 flex justify-center bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double">
+            <div className="max-w-5xl col-span-4 sm:col-span-2 flex justify-center bg-floral-white border-taupe-gray border-8 text-taupe-gray border-double">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/projects" element={<Projects />} />
@@ -61,12 +66,15 @@ export function App() {
                 <Route path="/resume" element={<Resume />} />
               </Routes>
             </div>
+            <div className="max-w-xs hidden sm:flex flex flex-col">
+              <Status />
+            </div>
           </div>
           <div className="flex justify-center">
             <Footer />
           </div>
         </div>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
