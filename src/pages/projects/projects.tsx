@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-import { createClient } from "@supabase/supabase-js";
-import { Database } from "../../database.types.ts";
-
-const supabase = createClient<Database>(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY,
-);
+import projectsData from "./projects.yml";
 
 interface Project {
   title: string;
@@ -25,14 +18,14 @@ class ProjectClass implements Project {
   source_code: string;
   integrated_apis: string[];
 
-  constructor(
-    title: string = "",
-    description: string = "",
-    stack: string[] = [],
-    demo: string = "",
-    source_code: string = "",
-    integrated_apis: string[] = [],
-  ) {
+  constructor({
+    title = "",
+    description = "",
+    stack = [],
+    demo = "",
+    source_code = "",
+    integrated_apis = [],
+  }: Partial<Project>) {
     this.title = title;
     this.description = description;
     this.stack = stack.slice();
@@ -46,27 +39,11 @@ function Projects() {
   const [projects, setProjects] = useState<ProjectClass[]>([]);
 
   useEffect(() => {
-    getProjects();
-  }, []);
-
-  async function getProjects() {
-    const holdProjects: ProjectClass[] = [];
-    const { data } = await supabase.from("projects").select();
-    if (data) {
-      data.forEach((project) => {
-        const projectInstance = new ProjectClass(
-          project.title ?? "",
-          project.description ?? "",
-          project.stack ?? [],
-          project.demo ?? "",
-          project.source_code ?? "",
-          project.integrated_apis ?? [],
-        );
-        holdProjects.push(projectInstance);
-      });
-    }
+    const holdProjects = (projectsData as Project[]).map(
+      (proj) => new ProjectClass(proj),
+    );
     setProjects(holdProjects);
-  }
+  }, []);
 
   function toggleVisibility(title: string) {
     const projectBodyId = document.getElementById(title.concat("- body"));
@@ -86,7 +63,7 @@ function Projects() {
         personal, professional, and school areas.
       </p>
       {projects.map((project) => (
-        <div className="md space-y-4 min-w-full">
+        <div key={project.title} className="md space-y-4 min-w-full">
           <div
             id={project.title.concat("- header")}
             data-visible={false}

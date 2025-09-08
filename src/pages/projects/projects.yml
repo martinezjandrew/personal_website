@@ -1,0 +1,41 @@
+- title: ScriboAI
+  description: |
+    ScriboAI was the senior project I developed at St. Edward's University with Aiman Zoqi (/aimanzoqi).
+    ScriboAI is a web-based platform that simplies and accelerates the creation of training programs, utilizing LLMs.
+    The goal was to overcome common challenges in creating training programs for small or medium-sized organizations.
+  integrated_apis:
+    - Resend
+    - HuggingFace
+  stack:
+    - vite/react
+    - typescript
+    - gunicorn
+    - nginx
+    - certbot
+    - django python framework
+    - fast.api
+    - python
+    - haystack
+    - mongodb
+    - redis
+    - llama
+    - gemma
+  demo:
+  source_code: https://github.com/Zoqi-Andrew-Senior-Project/ScriboAI-Consumer
+
+- title: WeGo TAAS Solution
+  description: |
+    This project was worked on for my Software Engineering class.
+    In a group of 8, we simulated agile software development to create an extensible framework for deploying transportation-as-a-service (TAAS) applications which would interact with a network of autonomous driving vehicles, hosted by WeGo.
+    Our alpha demo included a two cloud solution, one to host the service hosting the TAAS applications and the other to simulate a network of autonomous vehicles.
+  stack:
+    - django python framework
+    - reactJS
+    - mySql
+    - gunicorn
+    - nginx
+    - mongoDB
+  integrated_apis:
+    - Mapbox
+  demo: https://youtu.be/pfdZyTuQRrk?si=8nwCN6IJMQYqlCPR
+  source_code: https://github.com/ricky-yosh/wego
