@@ -1,8 +1,8 @@
 import matter from "gray-matter";
 import { Buffer } from "buffer";
 
-if (!globalThis.Buffer) {
-  globalThis.Buffer = Buffer;
+if (!(globalThis as any).Buffer) {
+  (globalThis as any).Buffer = Buffer;
 }
 
 export interface Post {
@@ -14,7 +14,7 @@ export interface Post {
 
 export const posts: Post[] = Object.entries(
   import.meta.glob("./pages/blog/posts/*.md", { eager: true, as: "raw" }),
-).map(([path, raw]): Post => {
+).map(([_path, raw]): Post => {
   const { data, content } = matter(raw as string);
 
   const post: Post = {

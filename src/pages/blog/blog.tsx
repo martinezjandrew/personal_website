@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 function Blog() {
   const title = "Blog";
-  const body =
-    "Hello there! Welcome to my website, I'm Andrew Martinez. I'm a programmer and a media enthusiest. On this website, you'll find my personal website and other stuff related to my interests. Enjoy!";
 
   return (
     <div>
