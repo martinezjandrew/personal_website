@@ -10,15 +10,19 @@ import Projects from "./pages/projects/projects.tsx";
 import AboutMe from "./pages/aboutme/aboutme.tsx";
 import Resume from "./pages/aboutme/resume.tsx";
 import "./style.css";
+import Blog from "./pages/blog/blog.tsx";
+import BlogPost from "./pages/blog/BlogPost.tsx";
 
 const home = new PageClass("Home", "/");
 const projects = new PageClass("Projects", "/projects");
 const resume = new PageClass("Resume", "/resume");
 const aboutme = new PageClass("AboutMe", "/about-me", [resume]);
+const blog = new PageClass("Blog", "/blog");
 const navigation = new PageClass("Navigation", "/navigvation", [
   home,
   aboutme,
   projects,
+  blog,
 ]);
 
 export function App() {
@@ -59,6 +63,8 @@ export function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/about-me" element={<AboutMe />} />
                 <Route path="/resume" element={<Resume />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
               </Routes>
             </div>
             <div className="max-w-xs hidden sm:flex flex flex-col">
