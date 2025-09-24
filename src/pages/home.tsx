@@ -8,7 +8,7 @@ function Home() {
 
   return (
     <div>
-      <Body title={title} body={body} />
+      <Body title={title} content={body} />
     </div>
   );
 }

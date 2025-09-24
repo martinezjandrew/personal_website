@@ -15,16 +15,29 @@
   h1 {
     font-family: var(--font-jacquard-12);
     font-size: var(--text-6xl);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
   }
   h2 {
     font-size: var(--text-3xl);
     font-weight: bold;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  h3 {
+    font-size: var(--text-xl);
+    font-weight: bold;
   }
   p {
     font-size: 20px;
+    line-height: 2rem;
   }
   .md {
     padding: 30px;
     line-height: 1.8;
+  }
+  ul {
+    padding-left: 20px;
+    list-style-type: circle;
   }
 }
