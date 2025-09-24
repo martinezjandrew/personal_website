@@ -14,6 +14,7 @@ import Blog from "./pages/blog/blog.tsx";
 import BlogPost from "./pages/blog/BlogPost.tsx";
 import Changelog from "./pages/log/changelog.tsx";
 import Log from "./pages/log/log.tsx";
+import Todo from "./pages/log/todo.tsx";
 
 const home = new PageClass("Home", "/");
 const projects = new PageClass("Projects", "/projects");
@@ -21,7 +22,8 @@ const resume = new PageClass("Resume", "/resume");
 const aboutme = new PageClass("AboutMe", "/about-me", [resume]);
 const blog = new PageClass("Blog", "/blog");
 const changelog = new PageClass("Changelog", "/changelog");
-const log = new PageClass("Log", "/log", [changelog]);
+const todo = new PageClass("Todo", "/todo");
+const log = new PageClass("Log", "/log", [changelog, todo]);
 const navigation = new PageClass("Navigation", "/navigvation", [
   home,
   aboutme,
@@ -72,6 +74,7 @@ export function App() {
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/log" element={<Log />} />
                 <Route path="/changelog" element={<Changelog />} />
+                <Route path="/todo" element={<Todo />} />
               </Routes>
             </div>
             <div className="max-w-xs hidden sm:flex flex flex-col">

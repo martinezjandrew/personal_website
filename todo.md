@@ -1,0 +1,25 @@
+# To Do
+
+Goals for v 1.0.0
+
+- Build extensible navigation ✔️
+- Create experience/resume page ✔️
+- Build blinkies
+- Create a Header ✔️
+- Create own background ✔️
+- Create extensible projects page ✔️
+
+Other stuff maybe
+
+- "Status" block that pulls latest bluesky post ✔️
+- "Links" block with links to linked in and other stuff
+- Dotfiles page
+- More gifs
+- at least one 3d bee somewhere
+- "To do" block ✔️
+- "Change log" block ✔️
+- "contact me"
+- programming interests somewhere
+- "gif treasure box"
+- "what im up to" -> what game im currently play, show watching, etc. ✔️
+- enhanced about me -> pronouns and stuff, my comp specs
