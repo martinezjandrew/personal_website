@@ -177,6 +177,12 @@ return `+str.trim()+`;
 
 All notable changes to the website will be documented here.
 
+## 1.4.0 - Adding a new favicon - Sept 24, 2025
+
+### Added
+
+- Added a new favicon.
+
 ## 1.3.0 - Introducing the Log - Sept 24, 2025
 
 ### Added
