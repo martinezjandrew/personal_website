@@ -56,7 +56,7 @@ export class PageClass implements Page {
     return (
       <div className="whitespace-pre font-cascadia-code" key={this.location}>
         <Link
-          className="hover:text-teal-300"
+          className="hover:text-teal-300 no-underline not-italic"
           to={this.location}
           onClick={handleClick}
         >
@@ -79,7 +79,7 @@ function addPointer(id: string) {
     const oldPointer = document.getElementById("pointer");
     oldPointer?.remove();
     const pointer = document.createElement("div");
-    pointer.innerHTML = "⟵";
+    pointer.innerHTML = " ⟵";
     pointer.id = "pointer";
     line.insertAdjacentElement("beforeend", pointer);
   }

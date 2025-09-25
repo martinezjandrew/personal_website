@@ -31,6 +31,7 @@
   p {
     font-size: 20px;
     line-height: 2rem;
+    margin-top: 1.5rem;
   }
   .md {
     padding: 30px;
@@ -39,5 +40,9 @@
   ul {
     padding-left: 20px;
     list-style-type: circle;
+  }
+  a {
+    text-decoration-line: underline;
+    font-style: italic;
   }
 }
