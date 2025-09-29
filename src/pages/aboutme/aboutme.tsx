@@ -1,11 +1,11 @@
 import React from "react";
-import Markdown from "react-markdown";
 import aboutme from "./aboutme.md";
+import Body from "../../components/body";
 
 function AboutMe() {
   return (
     <div>
-      <Markdown>{aboutme}</Markdown>
+      <Body content={aboutme}></Body>
     </div>
   );
 }
