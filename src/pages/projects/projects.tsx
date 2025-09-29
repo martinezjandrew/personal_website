@@ -62,6 +62,7 @@ function Projects() {
         This page contains a list of my most notable projects across my
         personal, professional, and school areas.
       </p>
+      <i>Click on any project title to learn more.</i>
       {projects.map((project) => (
         <div key={project.title} className="md space-y-4 min-w-full">
           <div
