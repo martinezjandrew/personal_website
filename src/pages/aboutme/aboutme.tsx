@@ -3,10 +3,8 @@ import Markdown from "react-markdown";
 import aboutme from "./aboutme.md";
 
 function AboutMe() {
-  const title = "About Me";
   return (
-    <div className="md">
-      <h1>{title}</h1>
+    <div>
       <Markdown>{aboutme}</Markdown>
     </div>
   );
